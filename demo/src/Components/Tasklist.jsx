@@ -1,5 +1,4 @@
 import React from 'react';
-
 export default function Tasklist({ tasks, updateTask, deleteTask }) {
   const toggleComplete = (index) => {
     const updatedTask = { ...tasks[index], completed: !tasks[index].completed };
@@ -7,15 +6,13 @@ export default function Tasklist({ tasks, updateTask, deleteTask }) {
   };
 
   return (
+    <div id="task-list">
     <ul>
       {tasks.map((task, index) => (
         <li key={index}>
           <div>
-            <span
-              style={{
-                textDecoration: task.completed ? 'line-through' : 'none',
-              }}
-            >
+            <span style={{textDecoration: task.completed ? 'line-through' : 'none'}}>
+            
               {task.text}
             </span>
             <small> ({task.priority}, {task.category})</small>
@@ -30,5 +27,6 @@ export default function Tasklist({ tasks, updateTask, deleteTask }) {
         </li>
       ))}
     </ul>
+    </div>
   );
 }

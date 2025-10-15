@@ -1,12 +1,20 @@
+
 export default function Progress({ tasks }) {
   const total = tasks.length;
   const completed = tasks.filter(t => t.completed).length;
-  const percent = total ? Math.round((completed / total) * 100) : 0;
+  const percent = total === 0 ? 0 : Math.round((completed / total) * 100);
 
   return (
-    <div>
-      <h2>Progress Tracker</h2>
-      {/* <p>{completed} of {total} tasks completed ({percent}%)</p> */}
-    </div>
+       <div className='progress-tracker'>
+        <p>
+            {completed} out of {total} tasks Completed
+        </p>
+
+        <div className='progress-bar'>
+            <div className='progress'
+            style={{width: `${percent}%`}}>
+            </div>
+        </div>
+    </div>
   );
 }

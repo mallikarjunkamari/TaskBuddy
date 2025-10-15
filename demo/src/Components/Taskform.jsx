@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 
 function Taskform({ addTask }) {
@@ -15,8 +16,8 @@ function Taskform({ addTask }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
+      <form onSubmit={handleSubmit} className="task-form">
+      <div id="inp">
         <input
           type="text"
           placeholder="Enter your task"
@@ -26,7 +27,7 @@ function Taskform({ addTask }) {
         <button type="submit">Add Task</button>
       </div>
 
-      <div>
+      <div id="btns">
         <select value={priority} onChange={(e) => setPriority(e.target.value)}>
           <option>High</option>
           <option>Medium</option>
@@ -40,6 +41,8 @@ function Taskform({ addTask }) {
         </select>
       </div>
     </form>
+
+
   );
 }
 
